@@ -1,0 +1,22 @@
+.theme_toggle {
+  color: inherit;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    svg {
+      fill: var(--color-primary);
+    }
+  }
+}
+
+.info_toggle {
+  @extend .theme_toggle;
+  margin-right: 0.5rem;
+}

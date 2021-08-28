@@ -1,0 +1,76 @@
+@use 'variables';
+
+.word {
+  max-width: 672px;
+  margin: 2rem auto;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.toast-container {
+  position: fixed;
+  background-color: var(--color-toast);
+  left: 50%;
+  top: 50%;
+  padding: 2rem;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: 0.5rem;
+  box-shadow: variables.$box-shadow;
+
+  @media screen and (min-width: 701px) {
+    top: unset;
+    bottom: 40px;
+    transform: translateX(-50%);
+  }
+}
+
+.modal-caption {
+  color: var(--color-caption);
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.btn-play-again {
+  background-color: var(--color-primary);
+  border: 1px solid transparent;
+  width: 100%;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  margin-top: auto;
+  margin-bottom: 20px;
+
+  @media screen and (min-width: 701px) {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: var(--color-primary-light);
+  }
+
+  &:active {
+    background-color: var(--color-primary-dark);
+  }
+}
+
+.finish-modal {
+  display: flex;
+  flex-direction: column;
+
+  .modal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+}
+
+.info-modal {
+  @extend .finish-modal;
+  @media screen and (min-width: 701px) {
+    max-width: 600px;
+  }
+}
