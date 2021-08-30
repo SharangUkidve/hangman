@@ -30,21 +30,6 @@ const Game = () => {
     }, 3000);
   };
 
-  const updateWordArray = (wordLettersArray: string[], letter: string, word: string) => {
-    const newGuessedWord = [...wordLettersArray];
-    for (let i = 0; i < word.length; i++) {
-      const l = word.charAt(i);
-      if (l === letter) {
-        newGuessedWord[i] = letter;
-      }
-    }
-    if (newGuessedWord.join('') === word) {
-      setGameStatus(Statuses.WON);
-      focusOnButton();
-    }
-    setWordLettersArray(newGuessedWord);
-  };
-
   const focusOnButton = () => {
     buttonRef.current?.focus();
   };
@@ -67,7 +52,18 @@ const Game = () => {
             focusOnButton();
           }
         } else {
-          updateWordArray(wordLettersArray, letter, word);
+          const newGuessedWord = [...wordLettersArray];
+          for (let i = 0; i < word.length; i++) {
+            const l = word.charAt(i);
+            if (l === letter) {
+              newGuessedWord[i] = letter;
+            }
+          }
+          if (newGuessedWord.join('') === word) {
+            setGameStatus(Statuses.WON);
+            focusOnButton();
+          }
+          setWordLettersArray(newGuessedWord);
         }
       } else {
         showRepeatNotification();
